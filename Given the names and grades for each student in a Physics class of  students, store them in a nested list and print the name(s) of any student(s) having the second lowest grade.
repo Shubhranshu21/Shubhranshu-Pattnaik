@@ -1,0 +1,37 @@
+l= [[raw_input(), float(input())] for _ in range(int(input()))]
+a = len(l)
+def sort(l):
+    
+    l.sort(key = lambda x: x[1]) 
+    return l 
+#mch function to remove duplicates of lowest score.       
+def mch(l):
+    i = 1
+    while i < len(l):
+        if l[i][1] ==l[0][1] :
+            l.pop(i)
+        else:
+            i += 1
+    return l       
+def dup(l):
+    sort(l)
+    mch(l)
+    #fu array stores all the duplicates of 2nd lowest score.
+    fu= []
+    fu.append(l[1][0]) 
+    
+   
+    for j in range (0,len(l)):
+        if (l[1][1]== l[j][1]) and (j!=1):
+            fu.append(l[j][0])
+    fu.sort()
+    f = len(fu)
+    for i in range (0,f):
+        print(fu[i])
+
+dup(l)
+
+
+            
+
+
